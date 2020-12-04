@@ -10,8 +10,7 @@ function generateToken($id){
     }
 
     $res = mysqli_fetch_assoc($res);
-    
-    $hash = hash('md5',$res['email'].$res['name']);
+    $hash = hash('md5',$res['email'].$res['name'].$id);
 
     return $hash;
 }
@@ -21,10 +20,11 @@ function verifyToken(){
     $id = apache_request_headers()['user'];
     $hash = generateToken($id);
 
-    if($hash == $token){
+    if($hash === $token){
         return true;
     }else{
         echo "Invalid Token";
+        exit();
       return false;
     }
 }

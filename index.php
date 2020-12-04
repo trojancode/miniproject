@@ -5,18 +5,21 @@ include_once('./include/token.php');
 include_once('./include/methods.php');
 
 // convertJsonFromQuery("SELECT * FROM users"); 
+function test(){
 
-get([verifyToken()],function(){
+    echo " test 1 r";
+    return true;
 
-    $token = generateToken(1);
+}
 
-    echo $token;
-});
+get(["verifyToken","test",function(){
 
+    echo " test 2";
 
-put([verifyToken()],function(){
+}]);
 
-    echo "PUT";
-});
+put([function(){
+    echo generateToken(1);
+}]);
 
 ?>
