@@ -1,31 +1,35 @@
 <?php
 
-function postM($func){
+function post($func,$controller){
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         foreach ($func as $key => $value) {
-            if(!$value()){
+            if(!$value){
                 exit();
             }
         }
+        $controller();
     }
 }
 
-
-function post($func){
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $func();
-    }
-}
-
-function get($func){
+function get($func,$controller){
     if($_SERVER['REQUEST_METHOD'] === 'GET'){
-        $func();
+        foreach ($func as $key => $value) {
+            if(!$value){
+                exit();
+            }
+        }
+        $controller();
     }
 }
 
-function put($func){
+function put($func,$controller){
     if($_SERVER['REQUEST_METHOD'] === 'PUT'){
-        $func();
+        foreach ($func as $key => $value) {
+            if(!$value){
+                exit();
+            }
+        }
+        $controller();
     }
 }
 ?>

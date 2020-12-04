@@ -6,32 +6,15 @@ include_once('./include/methods.php');
 
 // convertJsonFromQuery("SELECT * FROM users"); 
 
-get(function(){
+get([verifyToken()],function(){
 
     $token = generateToken(1);
 
     echo $token;
-   
-    verifyToken();
 });
 
 
-postM([function(){
-
-    echo "POST m";
-    return true;
-},function(){
-
-    echo "POST 1";
-    return false;
-},function(){
-
-    echo "POST 3";
-    return true;
-},]);
-
-
-put(function(){
+put([verifyToken()],function(){
 
     echo "PUT";
 });
