@@ -2,13 +2,29 @@
 
 include_once('./include/jsonResponse.php');
 include_once('./include/token.php');
+include_once('./include/methods.php');
 
 // convertJsonFromQuery("SELECT * FROM users"); 
 
- $token = generateToken(1);
+get(function(){
 
- echo $token;
+    $token = generateToken(1);
 
- verifyToken();
+    echo $token;
+   
+    verifyToken();
+});
+
+
+post(function(){
+
+    echo "POST";
+});
+
+
+put(function(){
+
+    echo "PUT";
+});
 
 ?>
