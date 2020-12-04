@@ -16,10 +16,19 @@ get(function(){
 });
 
 
-post(function(){
+postM([function(){
 
-    echo "POST";
-});
+    echo "POST m";
+    return true;
+},function(){
+
+    echo "POST 1";
+    return false;
+},function(){
+
+    echo "POST 3";
+    return true;
+},]);
 
 
 put(function(){

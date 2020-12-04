@@ -1,5 +1,16 @@
 <?php
 
+function postM($func){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        foreach ($func as $key => $value) {
+            if(!$value()){
+                exit();
+            }
+        }
+    }
+}
+
+
 function post($func){
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $func();
