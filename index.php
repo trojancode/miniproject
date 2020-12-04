@@ -4,6 +4,6 @@ include_once('./include/db.php');
 
 $res = mysqli_query($conn,"SELECT * FROM users");
 
-echo json_encode(mysqli_fetch_array($res));
+echo json_encode(mysqli_fetch_array($res,MYSQLI_ASSOC ));
 
 ?>
